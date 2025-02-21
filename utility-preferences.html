@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility and Preferences</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333333;
+            padding-top: 60px;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: #17a2b8;
+            margin-bottom: 20px;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 2px solid #17a2b8;
+        }
+
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            color: #17a2b8;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .content {
+            margin-right: 300px; /* Reserve space for sidebar */
+        }
+
+        .sidebar {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 60px;
+        background-color: #f8f9fa;
+        }
+
+        .sidebar .nav-link {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .sidebar .nav-link:hover {
+            color: #17a2b8;
+        }
+
+        .sidebar .topic-link {
+            font-weight: normal; /* Remove bold */
+            font-size: 0.9rem; /* Smaller font size */
+        }
+
+        main {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #17a2b8;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff6f61;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-left: none;
+                box-shadow: none;
+                margin-top: 20px;
+            }
+
+            .content {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <!-- Home Link -->
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+    
+                        <!-- Fundamentals Section with Dropdown -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#fundamentalsMenu" role="button" aria-expanded="false" aria-controls="fundamentalsMenu">
+                                Fundamentals (I)
+                            </a>
+                            <div class="collapse" id="fundamentalsMenu">
+                                <ul class="list-unstyled">
+                                    <li><a href="intro-mathematical-economics.html" class="nav-link topic-link">Introduction to the Governing Dynamics</a></li>
+                                    <li><a href="utility-preferences.html" class="nav-link topic-link">Utility and Preferences</a></li>
+                                    <li><a href="introductory-game-theory.html" class="nav-link topic-link">Introductory Game Theory</a></li>
+                                </ul>
+                            </div>
+                        </li>
+    
+                        <!-- Intermediate Topics Section with Dropdown -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#intermediateMenu" role="button" aria-expanded="false" aria-controls="intermediateMenu">
+                                Intermediate Topics (II)
+                            </a>
+                            <div class="collapse" id="intermediateMenu">
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="nav-link topic-link">Intermediate Game Theory</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Unconstrained Choice</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Constrained Choice</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Choice under Uncertainty</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Simple Dynamics</a></li>
+                                </ul>
+                            </div>
+                        </li>
+    
+                        <!-- Advanced Topics Section with Dropdown -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#advancedMenu" role="button" aria-expanded="false" aria-controls="advancedMenu">
+                                Advanced Topics (III)
+                            </a>
+                            <div class="collapse" id="advancedMenu">
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="nav-link topic-link">Advanced Game Theory</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Unconstrained Choice over Time</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Constrained Choice over Time</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Choice over Time, under Uncertainty</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Complex Dynamics</a></li>
+                                </ul>
+                            </div>
+                        </li>
+    
+                        <!-- Math Toolbox Section with Dropdown -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#toolboxMenu" role="button" aria-expanded="false" aria-controls="toolboxMenu">
+                                Math Toolbox
+                            </a>
+                            <div class="collapse" id="toolboxMenu">
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="nav-link topic-link">(I) Axioms of Logic</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(I) Set Theory</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(I) Basic Concepts in Analysis</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(I) Functions of a Single Variable</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(II) Functions of Several Variables</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(II) Static Optimization</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(II) Introduction to Differential Equations</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(II) Introduction to Linear Algebra</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(II) Probability and Statistics</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(III) Continuous-Time Optimization</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(III) Differential Equations</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(III) Advanced Linear Algebra</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(III) Stochastic Calculus and Ito's Lemma</a></li>
+                                </ul>
+                            </div>
+                        </li>
+    
+                        <!-- Contact Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+            <!-- Main Content Area -->
+            <main class="col-md-10 ms-sm-auto col-lg-10 px-md-4">
+                <!-- Your main content goes here -->
+                <div class="container">
+                    <h1>Utility and Preferences</h1>
+                    <p>
+                        <em><strong>"I came to the position that mathematical analysis is not one of many ways of doing economic theory: It is the only way. Economic theory is mathematical analysis. Everything else is just pictures and talk." - R. E. Lucas, Jr. (2001)</strong></em>
+                    </p>
+                    
+                </div>
+            </main>
+        </div>
+    </div>
+    
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand" href="#">The Governing Dynamics</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 The Governing Dynamics. All Rights Reserved.</p>
+        <p>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
