@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to the Governing Dynamics</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333333;
+            padding-top: 60px;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: #17a2b8;
+            margin-bottom: 20px;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 2px solid #17a2b8;
+        }
+
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            color: #17a2b8;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .content {
+            margin-right: 300px; /* Reserve space for sidebar */
+        }
+
+        .sidebar {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 60px;
+        background-color: #f8f9fa;
+        }
+
+        .sidebar .nav-link {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .sidebar .nav-link:hover {
+            color: #17a2b8;
+        }
+
+        .sidebar .topic-link {
+            font-weight: normal; /* Remove bold */
+            font-size: 0.9rem; /* Smaller font size */
+        }
+
+        main {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #17a2b8;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff6f61;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-left: none;
+                box-shadow: none;
+                margin-top: 20px;
+            }
+
+            .content {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <!-- Home Link -->
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+    
+                        <!-- Fundamentals Section with Dropdown -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#fundamentalsMenu" role="button" aria-expanded="false" aria-controls="fundamentalsMenu">
+                                Fundamentals (I)
+                            </a>
+                            <div class="collapse" id="fundamentalsMenu">
+                                <ul class="list-unstyled">
+                                    <li><a href="intro-mathematical-economics.html" class="nav-link topic-link">Introduction to the Governing Dynamics</a></li>
+                                    <li><a href="utility-preferences.html" class="nav-link topic-link">Utility and Preferences</a></li>
+                                    <li><a href="introductory-game-theory.html" class="nav-link topic-link">Introductory Game Theory</a></li>
+                                </ul>
+                            </div>
+                        </li>
+    
+                        <!-- Intermediate Topics Section with Dropdown -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#intermediateMenu" role="button" aria-expanded="false" aria-controls="intermediateMenu">
+                                Intermediate Topics (II)
+                            </a>
+                            <div class="collapse" id="intermediateMenu">
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="nav-link topic-link">Intermediate Game Theory</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Unconstrained Choice</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Constrained Choice</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Choice under Uncertainty</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Simple Dynamics</a></li>
+                                </ul>
+                            </div>
+                        </li>
+    
+                        <!-- Advanced Topics Section with Dropdown -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#advancedMenu" role="button" aria-expanded="false" aria-controls="advancedMenu">
+                                Advanced Topics (III)
+                            </a>
+                            <div class="collapse" id="advancedMenu">
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="nav-link topic-link">Advanced Game Theory</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Unconstrained Choice over Time</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Constrained Choice over Time</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Choice over Time, under Uncertainty</a></li>
+                                    <li><a href="#" class="nav-link topic-link">Complex Dynamics</a></li>
+                                </ul>
+                            </div>
+                        </li>
+    
+                        <!-- Math Toolbox Section with Dropdown -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#toolboxMenu" role="button" aria-expanded="false" aria-controls="toolboxMenu">
+                                Math Toolbox
+                            </a>
+                            <div class="collapse" id="toolboxMenu">
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="nav-link topic-link">(I) Axioms of Logic</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(I) Set Theory</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(I) Basic Concepts in Analysis</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(I) Functions of a Single Variable</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(II) Functions of Several Variables</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(II) Static Optimization</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(II) Introduction to Differential Equations</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(II) Introduction to Linear Algebra</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(II) Probability and Statistics</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(III) Continuous-Time Optimization</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(III) Differential Equations</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(III) Advanced Linear Algebra</a></li>
+                                    <li><a href="#" class="nav-link topic-link">(III) Stochastic Calculus and Ito's Lemma</a></li>
+                                </ul>
+                            </div>
+                        </li>
+    
+                        <!-- Contact Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+            <!-- Main Content Area -->
+            <main class="col-md-10 ms-sm-auto col-lg-10 px-md-4">
+                <!-- Your main content goes here -->
+                <div class="container">
+                    <h1>Introduction to the Governing Dynamics</h1>
+
+                    <p>
+                        <em><strong>"I came to the position that mathematical analysis is not one of many ways of doing economic theory: It is the only way. Economic theory is mathematical analysis. Everything else is just pictures and talk." - R. E. Lucas, Jr. (2001)</strong></em>
+                    </p>
+
+                    <h2>Understanding the Governing Dynamics</h2>
+                    <p>
+                        The governing dynamics are the mathematical principles that underpin the choices and decisions made by entities ranging from individuals like you and me to animals and firms. These dynamics provide a logical framework for understanding how decisions are made in a variety of contexts.
+                    </p>
+                    <p>
+                        A famous scene in the movie <em>A Beautiful Mind</em> features John Nash, the mathematician often regarded as the father of governing dynamics, observing a flock of pigeons. He is depicted analyzing their movements, attempting to uncover patterns and reasoning behind their behaviour. However ridiculous this is, it highlights the essence of the governing dynamics: finding logical explanations for seemingly complex, or simple, behaviours.
+                    </p>
+
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="Pictures/nash-pigeons.png" alt="John Nash observing pigeons in A Beautiful Mind" style="max-width: 100%; height: auto;">
+                    </div>
+
+                    <p>
+                        The primary goal of studying the governing dynamics is to develop a structured framework that explains decision-making processes. While this framework can be applied to virtually any field, its most prominent use has been in mathematical economics—an approach that uses mathematical reasoning and quantitative methods to understand and build economic theories.
+                    </p>
+                    <p>
+                        Unlike traditional qualitative theories that rely solely on intuition, the governing dynamics employ mathematical and statistical techniques to explain the psychological motivations behind choices. Much like how physical sciences use equations to describe natural laws, the governing dynamics aim to uncover the mathematical relationships that govern human decision-making.
+                    </p>
+
+                    <h2>Our Mathematical Models</h2>
+                    <p>
+                        When we construct equations that satisfy a set of assumptions and principles to describe or predict certain phenomena, we create what is known as a mathematical model. Broadly speaking, mathematical models can be categorized into two types: descriptive and predictive.
+                    </p>
+                    <p>
+                        <strong>Descriptive Models:</strong> These models describe mathematical relationships without relying heavily on data. They tend to focus on traditional mathematics and are often driven by intuition.
+                    </p>
+                    <p>
+                        <strong>Predictive Models:</strong> These models use large datasets to establish relationships and often involve statistical methods, particularly inferential statistics.
+                    </p>
+                    <p>
+                        For the purpose of this discussion, we’ll focus on descriptive models, which align more closely with intuition and offer greater creative freedom. Let’s explore the fundamental assumptions and principles that such equations should include:
+                    </p>
+
+                    <h3>Key Assumptions and Principles:</h3>
+                    <ul>
+                        <li><strong>Agents:</strong> The individuals or entities making choices.</li>
+                        <li><strong>Control Variables:</strong> The set of choices available to the agents.</li>
+                        <li><strong>State Variables:</strong> The state of the context under which these choices are made.</li>
+                        <li><strong>Value/Utility:</strong> The outcome of the choices made by the agents.</li>
+                        <li><strong>Rationality:</strong> The assumption that agents will always choose the best possible outcome.</li>
+                    </ul>
+
+                    <p>
+                        By understanding and applying these foundational elements, we can begin to build models that describe the dynamics behind decision-making processes.
+                    </p>
+
+                    <h3>An Example: Eating Chocolate the Right Way</h3>
+
+                    <p>
+                        To illustrate the governing dynamics in a simple scenario, let’s consider two agents: Bob and Mary. They are each holding a chocolate bar and are trying to decide how many chunks he should eat. We can define this problem using the assumptions and principles discussed earlier:
+                    </p>
+
+                    <ul>
+                        <li><strong>Control Variable</strong> The control variable in this scenario is the number of chunks either individual eats from their chocolate bar.</li>
+                        <li><strong>State Variable:</strong> The state variable here is the quantity of chocolate remaining in either's possession as they eat.</li>
+                        <li><strong>Utility:</strong> The utility represents the enjoyment or satisfaction either individual derives from consuming the chunks of the chocolate bar.</li>
+                        <li><strong>Rationality:</strong> We assume that Bob and Mary will choose the number of chunks that maximizes their individual overall enjoyment, or utility.</li>
+                    </ul>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="Pictures/Optimizing_chocolate.png" alt="A plot of Bob's Utility pertaining to eating chocolate" style="max-width: 100%; height: auto;">
+                    </div>
+
+                    <h4>Constructing the Problem</h4>
+                    
+                    <p>
+                        Given the principles and assumptions of our model, we can now structure our problem. The goal is to determine the number of chocolate chunks Bob and Mary should eat from their chocolate bars in order to maximize their utility. Problems like these fall under the category of <strong>optimization problems</strong>. 
+                    </p>
+
+                    <p>
+                        In fact, most decisions we make involve an optimization process where we choose an action that leads to the most desirable outcome. Optimization theory, built on the assumptions and principles we discussed, is a cornerstone of the governing dynamics. It is a tool we will frequently use to develop and solve the equations that govern choice.
+                    </p>
+
+
+                    <p>
+                        To solve this, we need to establish a measure of utility that Bob and Mary derive from each possible number of chocolate chunks. Our objective is to choose the number of chunks such that their utility is higher than in any other scenario. Mathematically, this concept is known as finding the <strong>maximum</strong>.
+                    </p>
+
+                    <h4>Static vs. Dynamic Optimization</h4>
+
+                    <p>
+                        There are two ways to approach this problem:
+                    </p>
+                    <ol>
+                        <li><strong>Static Optimization:</strong> Bob and Mary decide in one go how many chunks to eat before they even start.</li>
+                        <li><strong>Dynamic Optimization:</strong> Bob and Mary adjust the number of chunks they eat as they consume their chocolate, optimizing their total utility over time.</li>
+                    </ol>
+                    
+                    <p>
+                        For now, let’s stick with static optimization since it’s simpler to understand. In this case, time doesn’t play a role, and the utility depends solely on the number of chocolate chunks eaten. Mathematically, this means that utility is a function of the number of chunks eaten. By plotting this function, we can determine the point at which utility is maximized and identify the corresponding number of chunks.
+                    </p>
+
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="Pictures/Static_vs_Dynamic_Optimization.png" alt="A plot of Bob's Utility pertaining to eating chocolate" style="max-width: 100%; height: auto;">
+                    </div>
+
+                    <h4>Understanding and Visualizing Utility Functions & Preferences</h4>
+
+                    <p>
+                        Bob and Mary have different attitudes towards chocolate, leading to distinct behaviours that influence their utility functions. We can plot their individual utility functions to visualize these idiosyncratic behaviours, known as <strong>preferences</strong>:
+                    </p>
+
+
+                    <ol>
+                        <li><strong>Bob’s Preferences:</strong> Bob enjoys eating as much chocolate as he can but values the first few chunks more because they satisfy his initial cravings.</li>
+                        
+                        <div style="text-align: center; margin: 20px 0;">
+                            <img src="Pictures/chocolate_graph.png" alt="A plot of Bob's Utility pertaining to eating chocolate" style="max-width: 100%; height: auto;">
+                        </div>
+
+                        <li><strong>Mary’s Preferences:</strong> Like Bob, Mary also values the first few chunks for the same reasons. However, she only enjoys chocolate up to a certain point; beyond that, she feels she is overeating, which she dislikes.</li>
+                    
+                        <div style="text-align: center; margin: 20px 0;">
+                            <img src="Pictures/chocolate_graph_2.png" alt="A plot of Mary's Utility pertaining to eating chocolate" style="max-width: 100%; height: auto;">
+                        </div>
+                    </ol>
+                    
+                    <h4>Descriptive vs. Predictive Models</h4>
+
+                    <p>
+                        Understanding the distinction between descriptive and predictive models is key when exploring governing dynamics. Predictive models rely on gathering data from individuals with similar preferences, such as those of Bob or Mary, and fitting a line of best fit to represent behavior. However, predictive models lack flexibility—they’re based on historical data and often ignore intuition, even when results contradict initial expectations. These models are effective for analyzing broad trends but fall short when it comes to explaining the reasoning behind choices.
+                    </p>
+
+                    <p>
+                        In contrast, descriptive models start with an intuitive understanding and then construct a mathematical framework to describe it. While predictive models focus on statistical outcomes without considering context, descriptive models aim to capture the underlying logic of decision-making, such as the enjoyment of the first few bites of chocolate versus the later ones.
+                    </p>
+
+                    <p>
+                        Descriptive models allow us to explore the mathematical reasoning behind choices, focusing on how decisions are made rather than just predicting outcomes. They provide insights into the process of decision-making, considering context and individual preferences. While predictive models are useful for testing the accuracy of descriptive models, they don’t capture the “why” behind decisions—only the “what.” Descriptive models, by contrast, offer a structured approach to understanding the logic that drives choices.
+                    </p>
+
+                </div>
+            </main>
+        </div>
+    </div>
+    
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand" href="#">The Governing Dynamics</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 The Governing Dynamics. All Rights Reserved.</p>
+        <p>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
