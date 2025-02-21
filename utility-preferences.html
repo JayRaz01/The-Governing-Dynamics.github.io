@@ -14,6 +14,11 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     
+    <!-- MathJax for LaTeX rendering -->
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
     <!-- Custom CSS -->
     <style>
         body {
@@ -51,12 +56,12 @@
         }
 
         .sidebar {
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        padding-top: 60px;
-        background-color: #f8f9fa;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 60px;
+            background-color: #f8f9fa;
         }
 
         .sidebar .nav-link {
@@ -113,151 +118,49 @@
     </style>
 </head>
 <body>
-
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <nav id="sidebar" class="col-md-2 d-none d-md-block bg-light sidebar">
-                <div class="position-sticky">
-                    <ul class="nav flex-column">
-                        <!-- Home Link -->
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                        </li>
-    
-                        <!-- Fundamentals Section with Dropdown -->
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#fundamentalsMenu" role="button" aria-expanded="false" aria-controls="fundamentalsMenu">
-                                Fundamentals (I)
-                            </a>
-                            <div class="collapse" id="fundamentalsMenu">
-                                <ul class="list-unstyled">
-                                    <li><a href="intro-mathematical-economics.html" class="nav-link topic-link">Introduction to the Governing Dynamics</a></li>
-                                    <li><a href="utility-preferences.html" class="nav-link topic-link">Utility and Preferences</a></li>
-                                    <li><a href="introductory-game-theory.html" class="nav-link topic-link">Introductory Game Theory</a></li>
-                                </ul>
-                            </div>
-                        </li>
-    
-                        <!-- Intermediate Topics Section with Dropdown -->
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#intermediateMenu" role="button" aria-expanded="false" aria-controls="intermediateMenu">
-                                Intermediate Topics (II)
-                            </a>
-                            <div class="collapse" id="intermediateMenu">
-                                <ul class="list-unstyled">
-                                    <li><a href="#" class="nav-link topic-link">Intermediate Game Theory</a></li>
-                                    <li><a href="#" class="nav-link topic-link">Unconstrained Choice</a></li>
-                                    <li><a href="#" class="nav-link topic-link">Constrained Choice</a></li>
-                                    <li><a href="#" class="nav-link topic-link">Choice under Uncertainty</a></li>
-                                    <li><a href="#" class="nav-link topic-link">Simple Dynamics</a></li>
-                                </ul>
-                            </div>
-                        </li>
-    
-                        <!-- Advanced Topics Section with Dropdown -->
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#advancedMenu" role="button" aria-expanded="false" aria-controls="advancedMenu">
-                                Advanced Topics (III)
-                            </a>
-                            <div class="collapse" id="advancedMenu">
-                                <ul class="list-unstyled">
-                                    <li><a href="#" class="nav-link topic-link">Advanced Game Theory</a></li>
-                                    <li><a href="#" class="nav-link topic-link">Unconstrained Choice over Time</a></li>
-                                    <li><a href="#" class="nav-link topic-link">Constrained Choice over Time</a></li>
-                                    <li><a href="#" class="nav-link topic-link">Choice over Time, under Uncertainty</a></li>
-                                    <li><a href="#" class="nav-link topic-link">Complex Dynamics</a></li>
-                                </ul>
-                            </div>
-                        </li>
-    
-                        <!-- Math Toolbox Section with Dropdown -->
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#toolboxMenu" role="button" aria-expanded="false" aria-controls="toolboxMenu">
-                                Math Toolbox
-                            </a>
-                            <div class="collapse" id="toolboxMenu">
-                                <ul class="list-unstyled">
-                                    <li><a href="#" class="nav-link topic-link">(I) Axioms of Logic</a></li>
-                                    <li><a href="#" class="nav-link topic-link">(I) Set Theory</a></li>
-                                    <li><a href="#" class="nav-link topic-link">(I) Basic Concepts in Analysis</a></li>
-                                    <li><a href="#" class="nav-link topic-link">(I) Functions of a Single Variable</a></li>
-                                    <li><a href="#" class="nav-link topic-link">(II) Functions of Several Variables</a></li>
-                                    <li><a href="#" class="nav-link topic-link">(II) Static Optimization</a></li>
-                                    <li><a href="#" class="nav-link topic-link">(II) Introduction to Differential Equations</a></li>
-                                    <li><a href="#" class="nav-link topic-link">(II) Introduction to Linear Algebra</a></li>
-                                    <li><a href="#" class="nav-link topic-link">(II) Probability and Statistics</a></li>
-                                    <li><a href="#" class="nav-link topic-link">(III) Continuous-Time Optimization</a></li>
-                                    <li><a href="#" class="nav-link topic-link">(III) Differential Equations</a></li>
-                                    <li><a href="#" class="nav-link topic-link">(III) Advanced Linear Algebra</a></li>
-                                    <li><a href="#" class="nav-link topic-link">(III) Stochastic Calculus and Ito's Lemma</a></li>
-                                </ul>
-                            </div>
-                        </li>
-    
-                        <!-- Contact Link -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-    
-            <!-- Main Content Area -->
-            <main class="col-md-10 ms-sm-auto col-lg-10 px-md-4">
-                <!-- Your main content goes here -->
-                <div class="container">
-                    <h1>Utility and Preferences</h1>
-                    <p>
-                        <em><strong>"I came to the position that mathematical analysis is not one of many ways of doing economic theory: It is the only way. Economic theory is mathematical analysis. Everything else is just pictures and talk." - R. E. Lucas, Jr. (2001)</strong></em>
-                    </p>
-
-                    <p>Utility is an outcome of actions (our decisions). We can think of the total set of actions \(A\) as containing all possible actions we could take, represented by \( a_i, i = 1,2,3, \dots \).</p>
+    <div class="container">
+        <h1>Utility and Preferences</h1>
+        <p>Utility is an outcome of actions (our decisions). We can think of the total set of actions \(A\) as containing all possible actions we could take, represented by \( a_i, i = 1,2,3, \dots \).</p>
         
-                    <img src="path_to_uploaded_venn_diagram_1.png" alt="Set of Actions A">
-                    
-                    <p>When we take these actions, we obtain an outcome known as the utility of those actions.</p>
-                    <p>To quantify these outcomes mathematically, we use numbers (e.g., \( 1,2,3,4,\dots \)), possibly including negative numbers to represent disutility.</p>
-                    <p>Since utility is measured in regular numbers, we define this set mathematically as the set of real numbers \( \mathbb{R} \).</p>
-                    
-                    <img src="path_to_uploaded_venn_diagram_2.png" alt="Real Number Set R">
-                    
-                    <h2>The Utility Function</h2>
-                    
-                    <p>Actions from \(A\) produce outcomes in \( \mathbb{R} \). The function determining which actions generate which utilities is known as the <strong>utility function</strong>.</p>
-                    
-                    <p>Mathematically, we define the utility function as:</p>
-                    <p>\[ U: A \to \mathbb{R} \]</p>
-                    
-                    <img src="path_to_uploaded_venn_diagram_3.png" alt="Utility Function Mapping">
-                    
-                    <h2>Example: Bob Eating Chocolate</h2>
-                    
-                    <p>Bob enjoys chocolate and decides how many bites to eat. His action set is:</p>
-                    <p>\[ A = \{ a_0, a_1, a_2, \dots, a_8 \} = \{ 0,1,2,\dots,8 \} \]</p>
-                    
-                    <p>Since Bob cannot eat fractional or negative bites, his actions can be plotted on a graph:</p>
-                    
-                    <img src="path_to_uploaded_graph_1.png" alt="Action Set Graph">
-                    
-                    <p>Bob’s utility from eating chocolate follows a pattern:</p>
-                    <ul>
-                        <li>At 0 bites, he feels no reward.</li>
-                        <li>From 1 to 4 bites, his enjoyment increases.</li>
-                        <li>Beyond 4 bites, he starts feeling it’s too much, and utility decreases.</li>
-                    </ul>
-                    
-                    <p>We can plot Bob’s utility as follows:</p>
-                    
-                    <img src="/mnt/data/bob_utility_plot.png" alt="Bob's Utility Function">
-
-    
-                </div>
-            </main>
-        </div>
+        <img src="path_to_uploaded_venn_diagram_1.png" alt="Set of Actions A">
+        
+        <p>When we take these actions, we obtain an outcome known as the utility of those actions.</p>
+        <p>To quantify these outcomes mathematically, we use numbers (e.g., \( 1,2,3,4,\dots \)), possibly including negative numbers to represent disutility.</p>
+        <p>Since utility is measured in regular numbers, we define this set mathematically as the set of real numbers \( \mathbb{R} \).</p>
+        
+        <img src="path_to_uploaded_venn_diagram_2.png" alt="Real Number Set R">
+        
+        <h2>The Utility Function</h2>
+        
+        <p>Actions from \(A\) produce outcomes in \( \mathbb{R} \). The function determining which actions generate which utilities is known as the <strong>utility function</strong>.</p>
+        
+        <p>Mathematically, we define the utility function as:</p>
+        <p>\[ U: A \to \mathbb{R} \]</p>
+        
+        <img src="path_to_uploaded_venn_diagram_3.png" alt="Utility Function Mapping">
+        
+        <h2>Example: Bob Eating Chocolate</h2>
+        
+        <p>Bob enjoys chocolate and decides how many bites to eat. His action set is:</p>
+        <p>\[ A = \{ a_0, a_1, a_2, \dots, a_8 \} = \{ 0,1,2,\dots,8 \} \]</p>
+        
+        <p>Since Bob cannot eat fractional or negative bites, his actions can be plotted on a graph:</p>
+        
+        <img src="path_to_uploaded_graph_1.png" alt="Action Set Graph">
+        
+        <p>Bob’s utility from eating chocolate follows a pattern:</p>
+        <ul>
+            <li>At 0 bites, he feels no reward.</li>
+            <li>From 1 to 4 bites, his enjoyment increases.</li>
+            <li>Beyond 4 bites, he starts feeling it’s too much, and utility decreases.</li>
+        </ul>
+        
+        <p>We can plot Bob’s utility as follows:</p>
+        
+        <img src="/mnt/data/bob_utility_plot.png" alt="Bob's Utility Function">
     </div>
-    
 
+    
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <a class="navbar-brand" href="#">The Governing Dynamics</a>
